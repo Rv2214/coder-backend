@@ -44,7 +44,9 @@ class ProductManager {
   }
 }
 
-const products = new ProductManager({
+const products = new ProductManager();
+
+products.create({
   title: "cebollas",
   description: "Este es un producto de prueba",
 });
@@ -60,5 +62,3 @@ products.create({
   title: "papas",
   description: "Este es un producto de prueba",
 });
-
-

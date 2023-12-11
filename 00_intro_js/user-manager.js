@@ -27,7 +27,9 @@ class userManager {
   }
 }
 
-const users = new userManager({
+const users = new userManager();
+
+users.create({
   name: "Ramon Diaz",
   email: "ramondiaz@gmail.com",
 });
