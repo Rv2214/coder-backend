@@ -23,7 +23,14 @@ class ProductManager {
     return ProductManager.products;
   }
   readById(id) {
-    return ProductManager.products.find((each) => each.id === Number(id));
+    const productId = ProductManager.products.find(
+      (each) => each.id === Number(id)
+    );
+    if (!productId) {
+      throw new Error(`El producto con ID ${id} es inexistente`);
+    }
+
+    return productId;
   }
   soldProduct(quantity, productId) {
     const product = this.readById(productId);
