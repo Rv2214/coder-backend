@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "papas",
+    "price": 20,
+    "stock": 50
+  },
+  {
+    "id": 2,
+    "title": "tomates",
+    "price": 20,
+    "stock": 50
+  },
+  {
+    "id": 3,
+    "title": "manzanas",
+    "price": 20,
+    "stock": 50
+  },
+  {
+    "id": 4,
+    "title": "bananas",
+    "price": 20,
+    "stock": 50
+  },
+  {
+    "id": 5,
+    "title": "cebollas",
+    "photo": "sin imagen",
+    "price": 20,
+    "stock": 50
+  },
+  {
+    "id": 6,
+    "title": "Nuevo Producto",
+    "photo": "sin imagen",
+    "price": 19.99,
+    "stock": 50
+  },
+  {
+    "id": 7,
+    "title": "Nuevo Producto",
+    "photo": "sin imagen",
+    "price": 19.99,
+    "stock": 50
+  }
+]
