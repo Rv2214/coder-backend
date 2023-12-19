@@ -43,5 +43,33 @@
     "photo": "sin imagen",
     "price": 19.99,
     "stock": 50
+  },
+  {
+    "id": 8,
+    "title": "Nuevo Producto",
+    "photo": "sin imagen",
+    "price": 19.99,
+    "stock": 50
+  },
+  {
+    "id": 9,
+    "title": "Nuevo Producto",
+    "photo": "sin imagen",
+    "price": 19.99,
+    "stock": 50
+  },
+  {
+    "id": 10,
+    "title": "Nuevo Producto",
+    "photo": "sin imagen",
+    "price": 19.99,
+    "stock": 50
+  },
+  {
+    "id": 11,
+    "title": "Nuevo Producto",
+    "photo": "sin imagen",
+    "price": 19.99,
+    "stock": 50
   }
 ]
