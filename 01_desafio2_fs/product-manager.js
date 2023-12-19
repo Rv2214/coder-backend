@@ -113,6 +113,27 @@ class productManager {
       return error.message;
     }
   }
+  async updateProduct(id, newData) {
+    try {
+      const index = this.products.findIndex(
+        (product) => product.id === Number(id)
+      );
+      if (index === -1) {
+        throw new Error("No se encontro el producto con el ID proporcionado");
+      }
+
+      const updatedProduct = { ...this.products[index], ...newData };
+      this.products[index] = updatedProduct;
+
+      await fs.promises.writeFile(
+        this.path,
+        JSON.stringify(this.products, null, 2)
+      );
+      return updatedProduct;
+    } catch (error) {
+      error.message;
+    }
+  }
 }
 
 const product = new productManager("./01_desafio2_fs/app/data/products.json");
@@ -152,6 +173,26 @@ if (productToDelete) {
 } else {
   console.log("Error: No se encontró el producto con el ID proporcionado");
 }
+
+const productIdToUpdate = 13; // ID del producto a actualizar
+const newData = {
+  title: "Nuevo Título",
+  price: 29.99,
+  stock: 20,
+};
+
+product
+  .updateProduct(productIdToUpdate, newData)
+  .then((updatedProduct) => {
+    if (updatedProduct) {
+      console.log("Producto actualizado correctamente:", updatedProduct);
+    } else {
+      console.log("Error: No se encontró el producto con el ID proporcionado");
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 /* product.soldProduct(10, 5);
 

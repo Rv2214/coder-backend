@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "title": "papas",
-    "price": 20,
-    "stock": 50
+    "title": "Nuevo Título",
+    "price": 29.99,
+    "stock": 20
   },
   {
     "id": 2,
