@@ -23,7 +23,14 @@ class ProductManager {
     return ProductManager.products;
   }
   readById(id) {
-    return ProductManager.products.find((each) => each.id === Number(id));
+    const productId = ProductManager.products.find(
+      (each) => each.id === Number(id)
+    );
+    if (!productId) {
+      throw new Error(`El producto con ID ${id} es inexistente`);
+    }
+
+    return productId;
   }
   soldProduct(quantity, productId) {
     const product = this.readById(productId);
@@ -37,7 +44,9 @@ class ProductManager {
   }
 }
 
-const products = new ProductManager({
+const products = new ProductManager();
+
+products.create({
   title: "cebollas",
   description: "Este es un producto de prueba",
 });
@@ -53,5 +62,3 @@ products.create({
   title: "papas",
   description: "Este es un producto de prueba",
 });
-
-

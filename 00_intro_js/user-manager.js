@@ -19,11 +19,17 @@ class userManager {
     return userManager.users;
   }
   getUserById(id) {
-    return userManager.users.find((each) => each.id === Number(id));
+    const userId = userManager.users.find((each) => each.id === Number(id));
+    if (!userId) {
+      throw new Error(`El usuario con ID ${id} es inexistente`);
+    }
+    return userId;
   }
 }
 
-const users = new userManager({
+const users = new userManager();
+
+users.create({
   name: "Ramon Diaz",
   email: "ramondiaz@gmail.com",
 });
@@ -39,5 +45,3 @@ users.create({
   name: "Rosaura Marolio",
   email: "rosamarolio@hotmail.com",
 });
-
-
