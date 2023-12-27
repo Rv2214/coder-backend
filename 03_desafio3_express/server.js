@@ -14,7 +14,7 @@ server.use(express.urlencoded({ extended: true }));
 server.listen(PORT, ready);
 
 //endpoints
-server.get("api/products", (req,res)=>{
+server.get("/api/products", (req,res)=>{
     try{
         const all = product.readProducts()
         return res.status(200).json(all)
