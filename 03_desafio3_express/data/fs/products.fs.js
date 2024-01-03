@@ -21,7 +21,6 @@ class productManager {
       } else {
         const fileContent = fs.readFileSync(this.path, "utf-8");
         if (fileContent.trim() === "") {
-          // Handle empty file
           productManager.#products = [];
         } else {
           productManager.#products = JSON.parse(fileContent);
@@ -105,6 +104,7 @@ class productManager {
   getGain() {
     return productManager.#totalGain;
   }
+
   async deleteProductById(id) {
     try {
       const index = productManager.#products.findIndex(
@@ -121,12 +121,15 @@ class productManager {
         this.path,
         JSON.stringify(productManager.#products, null, 2)
       );
+      return {message:`Producto borrado correctamente`,
+        updateProducts: productManager.#products,
+      };
 
-      return true;
     } catch (error) {
       return error.message;
     }
   }
+
   async updateProduct(id, newData) {
     try {
       const index = productManager.#products.findIndex(
@@ -151,5 +154,11 @@ class productManager {
 }
 
 const product = new productManager("./data/products.json");
+
+product.create({
+/*     title: "papas",
+    price: "500",
+    stock: 100, */
+}) 
 
 export default product
