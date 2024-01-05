@@ -34,7 +34,7 @@ class productManager {
   async create(data) {
     try {
       if (!data.title || !data.price || !data.stock) {
-        throw new Error("Inserte titulo, precio y stock");
+        throw new Error("Title, stock & price are required");
       } else {
         const product = {
           id: crypto.randomBytes(12).toString("hex"),
@@ -44,13 +44,15 @@ class productManager {
           stock: data.stock,
         };
         productManager.#products.push(product);
+
+        const jsonData = JSON.stringify(productManager.#products, null, 2);
         await fs.promises.writeFile(
-          this.path,
-          JSON.stringify(productManager.#products, null, 2)
-        );
-        return true;
+          this.path, jsonData);
+        console.log("create " + product.id);
+        return product.id;
       }
     } catch (error) {
+
       return error.message;
     }
   }
@@ -68,10 +70,10 @@ class productManager {
   readOne(id) {
     try {
       const productId = productManager.#products.find(
-        (each) => each.id === String(id)
+        (each) => each.id === (id)
       );
       if (!productId) {
-        throw new Error("no se encontro el producto");
+        throw new Error("Product not found");
       } else {
         return productId;
       }
@@ -82,11 +84,11 @@ class productManager {
   async soldProduct(quantity, id) {
     try {
       if (!(quantity > 0)) {
-        throw new Error("inserte una cantidad valida");
+        throw new Error("enter a valid amount");
       } else {
         const product = this.readOne(id);
         if (typeof product == "string") throw new Error(product);
-        if (quantity > product.stock) throw new Error("sin stock");
+        if (quantity > product.stock) throw new Error("no stock");
         product.stock = product.stock - quantity;
         productManager.#totalGain =
           productManager.#totalGain +
@@ -156,9 +158,9 @@ class productManager {
 const product = new productManager("./data/products.json");
 
 product.create({
-/*     title: "papas",
-    price: "500",
-    stock: 100, */
+/*     title: "peras",
+    stock: 50,
+    price: 100, */  
 }) 
 
 export default product

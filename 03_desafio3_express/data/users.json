@@ -12,9 +12,15 @@
     "photo": "sin imagen"
   },
   {
-    "id": "bee57c3b03110c08f0d5fdfa",
-    "name": "Maria",
-    "email": "Maria@hotmail.com",
+    "id": "856c21c5ecc9b37f8c4f20ee",
+    "name": "Rodrigo",
+    "email": "rodrigo@postman.com",
+    "photo": "sin imagen"
+  },
+  {
+    "id": "1b52ed03255e90fc020c173e",
+    "name": "Rodrigo",
+    "email": "rodrigo@postman.com",
     "photo": "sin imagen"
   }
 ]

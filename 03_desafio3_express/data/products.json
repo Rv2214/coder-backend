@@ -1,38 +1,10 @@
 [
   {
-    "id": "de89c7c073cb511b1e9022f8",
-    "title": "papas",
-    "photo": "sin imagen",
-    "price": "500",
-    "stock": 100
-  },
-  {
-    "id": "1c29a24e4c0f6d2cb1d38a8e",
-    "title": "papas",
-    "photo": "sin imagen",
-    "price": "500",
-    "stock": 100
-  },
-  {
-    "id": "e82c111cb704f5b738638286",
-    "title": "papas",
-    "photo": "sin imagen",
-    "price": "500",
-    "stock": 100
-  },
-  {
-    "id": "9f85dfe43c6c7cc58d18ae5a",
-    "title": "papas",
-    "photo": "sin imagen",
-    "price": "500",
-    "stock": 100
-  },
-  {
     "id": "18f2adeccb7b592b44e2bcce",
     "title": "papas",
     "photo": "sin imagen",
     "price": "500",
-    "stock": 100
+    "stock": 50
   },
   {
     "id": "101e8d95a8c88c8924f468b9",
@@ -89,5 +61,68 @@
     "photo": "sin imagen",
     "price": "500",
     "stock": 100
+  },
+  {
+    "id": "1c0fd1bf7778cc13afba4a5c",
+    "title": "papas",
+    "photo": "sin imagen",
+    "price": "500",
+    "stock": 100
+  },
+  {
+    "id": "ac4390a9ad8ac66cabea9307",
+    "title": "peras",
+    "photo": "sin imagen",
+    "price": "100",
+    "stock": 50
+  },
+  {
+    "id": "cd5aa1779aff88f80bbf6ece",
+    "title": "peras",
+    "photo": "sin imagen",
+    "price": 100,
+    "stock": 50
+  },
+  {
+    "id": "a859060edbb6a89e723258e8",
+    "title": "manzanas",
+    "photo": "sin imagen",
+    "price": 1000,
+    "stock": 100
+  },
+  {
+    "id": "66e0487d221c61334584e73f",
+    "title": "manzanas",
+    "photo": "sin imagen",
+    "price": 1000,
+    "stock": 90
+  },
+  {
+    "id": "337550f0dd2af3bd43e72c2f",
+    "title": "duraznos",
+    "photo": "sin imagen",
+    "price": 1500,
+    "stock": 50
+  },
+  {
+    "id": "af39a6d3bc14e12d6836acc0",
+    "title": "duraznos",
+    "photo": "sin imagen",
+    "price": 1500,
+    "stock": 50
+  },
+  {
+    "id": "e55bfc5747d3179b0abb296d",
+    "title": "duraznos",
+    "photo": "sin imagen",
+    "price": 1500,
+    "stock": 50
+  },
+  {
+    "id": "00ada1e251881e19f441aa64",
+    "title": "duraznos",
+    "photo": "sin imagen",
+    "price": 1500,
+    "stock": 50
   }
 ]

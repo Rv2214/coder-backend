@@ -32,7 +32,7 @@ class userManager {
   async createUser(data) {
     try {
       if (!data.name || !data.email ) {
-        throw new Error("Inserte nombre, email y foto");
+        throw new Error("name & email required");
       }else {
         const user = {
         id: crypto.randomBytes(12).toString("hex"),
