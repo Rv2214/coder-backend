@@ -42,6 +42,31 @@ class ProductManager {
   getGain() {
     return ProductManager.#totalGain;
   }
+
+    async deleteProductById(id) {
+    try {
+      const index = ProductManager.products.findIndex(
+        (product) => product.id === id
+      );
+
+      if (index === -1) {
+        throw new Error("No se encontró el producto con el ID proporcionado");
+      }
+
+      ProductManager.products.splice(index, 1);
+
+      await fs.promises.writeFile(
+        this.path,
+        JSON.stringify(ProductManager.products, null, 2)
+      );
+      return {
+        message: `Producto borrado correctamente`,
+        updateProducts: ProductManager.products,
+      };
+    } catch (error) {
+      return error.message;
+    }
+  }
 }
 
 const products = new ProductManager();

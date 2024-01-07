@@ -25,6 +25,29 @@ class userManager {
     }
     return userId;
   }
+
+  async deleteUserById(id) {
+    try {
+      const index = userManager.users.findIndex(
+        (user) => user.id === id
+      );
+
+      if (index === -1) {
+        throw new Error("No se encontró el usuario con el ID proporcionado");
+      }
+
+      userManager.users.splice(index, 1);
+
+      await fs.promises.writeFile(
+        this.path,
+        JSON.stringify(userManager.users, null, 2)
+      );
+      return { message: `Usuario borrado correctamente`, updatedUsers: userManager.users };
+
+    } catch (error) {
+      return error.message;
+    }
+  }
 }
 
 const users = new userManager();

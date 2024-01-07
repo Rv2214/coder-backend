@@ -1,7 +1,5 @@
-import fs from "fs"
-import crypto from "crypto"
-
-
+import fs from "fs";
+import crypto from "crypto";
 
 class productManager {
   static #perGain = 0.3;
@@ -33,26 +31,20 @@ class productManager {
 
   async create(data) {
     try {
-      if (!data.title || !data.price || !data.stock) {
-        throw new Error("Title, stock & price are required");
-      } else {
-        const product = {
-          id: crypto.randomBytes(12).toString("hex"),
-          title: data.title,
-          photo: "sin imagen",
-          price: data.price,
-          stock: data.stock,
-        };
-        productManager.#products.push(product);
+      const product = {
+        id: crypto.randomBytes(12).toString("hex"),
+        title: data.title,
+        photo: "sin imagen",
+        price: data.price,
+        stock: data.stock,
+      };
+      productManager.#products.push(product);
 
-        const jsonData = JSON.stringify(productManager.#products, null, 2);
-        await fs.promises.writeFile(
-          this.path, jsonData);
-        console.log("create " + product.id);
-        return product.id;
-      }
+      const jsonData = JSON.stringify(productManager.#products, null, 2);
+      await fs.promises.writeFile(this.path, jsonData);
+      console.log("create " + product.id);
+      return product.id;
     } catch (error) {
-
       return error.message;
     }
   }
@@ -69,9 +61,7 @@ class productManager {
   }
   readOne(id) {
     try {
-      const productId = productManager.#products.find(
-        (each) => each.id === (id)
-      );
+      const productId = productManager.#products.find((each) => each.id === id);
       if (!productId) {
         throw new Error("Product not found");
       } else {
@@ -123,10 +113,10 @@ class productManager {
         this.path,
         JSON.stringify(productManager.#products, null, 2)
       );
-      return {message:`Producto borrado correctamente`,
+      return {
+        message: `Producto borrado correctamente`,
         updateProducts: productManager.#products,
       };
-
     } catch (error) {
       return error.message;
     }
@@ -155,12 +145,6 @@ class productManager {
   }
 }
 
-const product = new productManager("./data/products.json");
+const product = new productManager("./src/data/fs/files/products.json");
 
-product.create({
-/*     title: "peras",
-    stock: 50,
-    price: 100, */  
-}) 
-
-export default product
+export default product;

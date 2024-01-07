@@ -45,6 +45,7 @@ class userManager {
         this.path,
         JSON.stringify(userManager.#users, null, 2)
         );
+        console.log("create " + user.id);
         return true;
       };
     } catch (error) {
@@ -99,73 +100,32 @@ class userManager {
     }
   }
 
+    async updateUser(id, newData) {
+    try {
+      const index = userManager.#users.findIndex(
+        (user) => user.id === id
+      );
+      if (index === -1) {
+        throw new Error("No se encontro el producto con el ID proporcionado");
+      }
+
+      const updatedUser = { ...userManager.#users[index], ...newData };
+      userManager.#users[index] = updatedUser;
+
+      await fs.promises.writeFile(
+        this.path,
+        JSON.stringify(userManager.#users, null, 2)
+      );
+      return updatedUser;
+    } catch (error) {
+      error.message;
+    }
+  }
+
 }
 
 
-
-
-const user = new userManager("./data/users.json");
-
-/* user
-  .createUser({
-    name: "Jose",
-    email: "Jose@hotmail.com",
-     
-  })
-    .then((newUser) => {
-    console.log(newUser);
-  })
-    .catch((error) => {
-    console.error(error);
-  });
-
-
-  user.createUser({
-    name: "Juan",
-    email: "Juan@hotmail.com", 
-  })
-      .then((newUser) => {
-    console.log(newUser);
-  })
-    .catch((error) => {
-    console.error(error);
-  });
-
-  user.createUser({
-    name: "Raul",
-    email: "Raul@hotmail.com", 
-  })
-    .then((newUser) => {
-    console.log(newUser);
-  })
-    .catch((error) => {
-    console.error(error);
-  });
-
-  user.createUser({
-    name: "Raquel",
-    email: "Raquel@hotmail.com", 
-  })
-    .then((newUser) => {
-    console.log(newUser);
-  })
-    .catch((error) => {
-    console.error(error);
-  });
-
-  user.createUser({
-    name: "Maria",
-    email: "Maria@hotmail.com", 
-  })
-    .then((newUser) => {
-    console.log(newUser);
-  })
-    .catch((error) => {
-    console.error(error);
-  }); */
-
-
-//console.log(user.readOne(2));
+const user = new userManager("./src/data/fs/files/users.json");
 
 
 export default user
